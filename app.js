@@ -48,6 +48,19 @@ containers.forEach((container) => {
         },
         "<50%" // This runs the animation 50 percent while the last animation runs or half way through
       );
+
+      // Placeholder Shift
+      tl.to(
+        placeholder,
+        {
+          top: -15,
+          left: 0,
+          scale: 0.7,
+          duration: 0.5,
+          ease: "Power2.easeOut",
+        },
+        "<15%"
+      );
     }
   });
 });
