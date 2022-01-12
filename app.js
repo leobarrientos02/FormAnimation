@@ -84,5 +84,66 @@ form.addEventListener("click", () => {
         });
       }
     }
+    // Name Validation
+    input.addEventListener("input", (e) => {
+      if (e.target.type === "text") {
+        let inputText = e.target.value;
+        if (inputText.length > 2) {
+          // Colorize function
+          colorize("#6391E8", line, placeholder);
+        } else {
+          // Colorize function
+          colorize("#FE8C99", line, placeholder);
+        }
+      }
+
+      // Email Validation
+      if (e.target.type === "email") {
+        let valid = validateEmail(e.target.value);
+        if (valid) {
+          // Colorize function
+          colorize("#6391E8", line, placeholder);
+        } else {
+          // Colorize function
+          colorize("#FE8C99", line, placeholder);
+        }
+      }
+
+      // Phone number validation
+      if (e.target.type === "tel") {
+        let valid = validatePhone(e.target.value);
+        if (valid) {
+          // Colorize function
+          colorize("#6391E8", line, placeholder);
+        } else {
+          // Colorize function
+          colorize("#FE8C99", line, placeholder);
+        }
+      }
+    });
   });
 });
+
+// Check Email
+function validateEmail(email) {
+  let re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+
+// Check Phone number
+function validatePhone(phone) {
+  let re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  return re.test(phone);
+}
+
+// Colorize function
+function colorize(color, line, placeholder) {
+  gsap.to(line, {
+    stroke: color,
+    duration: 0.75,
+  });
+  gsap.to(placeholder, {
+    color: color,
+    duration: 0.75,
+  });
+}
