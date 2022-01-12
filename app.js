@@ -38,6 +38,7 @@ containers.forEach((container) => {
         }
       );
 
+      // Line animation
       tl.to(
         line,
         {
@@ -47,7 +48,7 @@ containers.forEach((container) => {
           ease: "elastic.out(3,0.5)",
         },
         "<50%" // This runs the animation 50 percent while the last animation runs or half way through
-      );
+      ); // Line animation end
 
       // Placeholder Shift
       tl.to(
@@ -60,7 +61,28 @@ containers.forEach((container) => {
           ease: "Power2.easeOut",
         },
         "<15%"
-      );
+      ); // Placeholder shift end
+    }
+  });
+});
+
+// Revert back if it's not focus
+form.addEventListener("click", () => {
+  containers.forEach((container) => {
+    const input = container.querySelector(".input");
+    const line = container.querySelector(".elastic-line");
+    const placeholder = container.querySelector(".placeholder");
+
+    if (document.activeElement !== input) {
+      if (!input.value) {
+        gsap.to(placeholder, {
+          top: 0,
+          left: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "Power2.easeOut",
+        });
+      }
     }
   });
 });
