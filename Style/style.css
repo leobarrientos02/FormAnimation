@@ -178,4 +178,17 @@ button {
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
 }
+
+.submitted {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #777474;
+  font-size: 1rem;
+  pointer-events: none;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+}
 /*# sourceMappingURL=style.css.map */
