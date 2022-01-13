@@ -131,6 +131,12 @@ form {
   border: 2px solid #c5c5c5;
 }
 
+.checkbox {
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
 .checkbox-fill {
   position: absolute;
   background: #6190e8;
